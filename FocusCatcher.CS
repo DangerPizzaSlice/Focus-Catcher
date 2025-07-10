@@ -13,8 +13,16 @@ class Program
 
     static void Main()
     {
+        Console.WriteLine("Developed by / Разработчик - DangerPizzaSlice");
+        Console.WriteLine();
+        Console.WriteLine("Here is a list of programs that takes focus.");
+        Console.WriteLine("Last one in the list right after the problem appeared, probably is your culprit.");
+        Console.WriteLine();
+        Console.WriteLine("Тут будет указан список программ, которые получали приоритет фокуса.");
+        Console.WriteLine("Последнее в списке сразу после репликации проблемы скорее всего и есть виновник.");
+        Console.WriteLine(new string('-', 95));
+
         int lastPid = -1;
-        string lastProc = "";
 
         while (true)
         {
@@ -22,7 +30,7 @@ class Program
             uint pid;
             GetWindowThreadProcessId(hwnd, out pid);
 
-            if (pid != lastPid)
+            if ((int)pid != lastPid)
             {
                 lastPid = (int)pid;
                 string procName = "unknown";
@@ -31,11 +39,19 @@ class Program
                     procName = Process.GetProcessById((int)pid).ProcessName;
                 }
                 catch { }
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("{0:HH:mm:ss.fff} Фокус: PID {1}  {2}", DateTime.Now, pid, procName);
+
+                // Игнорируем WindowsTerminal
+                if (procName.Equals("WindowsTerminal", StringComparison.OrdinalIgnoreCase))
+                {
+                    Thread.Sleep(50);
+                    continue;
+                }
+
+                string time = DateTime.Now.ToString("HH:mm:ss");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Focus Taken By: {0}  PID {1}  \"{2}\"", time, pid, procName);
                 Console.ResetColor();
             }
-
             Thread.Sleep(50);
         }
     }
