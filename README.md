@@ -17,5 +17,6 @@ Whatever you do with the program you found as a problem - not my concern. This l
 
 V.1.0 release: 
 Initial Release. \ Изначальный релиз.
+
 V.1.1 Changelog:
 Stopped the tool from detecting itself. \ Отменил в программе отслеживание самой себя.
