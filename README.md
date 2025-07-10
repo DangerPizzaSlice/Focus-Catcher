@@ -20,3 +20,17 @@ Initial Release. \ Изначальный релиз.
 
 V.1.1 Changelog:
 Stopped the tool from detecting itself. \ Отменил в программе отслеживание самой себя.
+
+v.1.2 changelog:
+Добавил парсинг языков для корректного вывода только нужных дисклеймеров.
+
+v.1.3 changelog: 
+Добавил возможность открывать найденные стилеры фокуса по клику через CTRL в консоли.
+
+Разработчик DangerPizzaSlice
+
+Контакты: DangerPizzaSlice@gmail.com
+
+https://steamcommunity.com/id/DangerPizzaSlice/
+
+Telegram @DangerPizzaSlice
